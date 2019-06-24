@@ -3,9 +3,9 @@ package service
 import (
 	"net/http"
 	"github.com/google/jsonapi"
-	"buildings/model"
-	"buildings/storage"
-	"buildings/logger"
+	"github.com/alokyadav/buildings/model"
+	"github.com/alokyadav/buildings/storage"
+	"github.com/alokyadav/buildings/logger"
 	"github.com/gorilla/mux"
 	"log"
 )
@@ -39,7 +39,7 @@ func (srv *BuildingService) AddBuilding(w http.ResponseWriter, r *http.Request) 
 	log.Printf("Building %+v", r.Body)
     id := srv.buildingStorage.Insert(building)
 	building.ID = id
-	
+
 	w.WriteHeader(http.StatusCreated)
 
 	if err := jsonapiRuntime.MarshalPayload(w, building); err != nil {

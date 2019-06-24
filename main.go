@@ -6,8 +6,8 @@ import (
 	"time"
 
 
-	"buildings/storage"
-	"buildings/service"
+	"github.com/alokyadav/buildings/storage"
+	"github.com/alokyadav/buildings/service"
 	"github.com/gorilla/mux"
 	"github.com/google/jsonapi"
 )

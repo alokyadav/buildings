@@ -6,9 +6,9 @@ import (
 	"net/http/httptest"
 	"github.com/gorilla/mux"
 
-	"buildings/storage"
-	"buildings/service"
-	"buildings/model"
+	"github.com/alokyadav/buildings/storage"
+	"github.com/alokyadav/buildings/service"
+	"github.com/alokyadav/buildings/model"
 
 	"github.com/google/jsonapi"
 

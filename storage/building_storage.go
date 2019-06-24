@@ -3,7 +3,7 @@ package storage
 import (
 	"errors"
 	"fmt"
-	"buildings/model"
+	"github.com/alokyadav/buildings/model"
 
 )
 
