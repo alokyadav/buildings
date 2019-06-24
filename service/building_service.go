@@ -39,8 +39,7 @@ func (srv *BuildingService) AddBuilding(w http.ResponseWriter, r *http.Request) 
 	log.Printf("Building %+v", r.Body)
     id := srv.buildingStorage.Insert(building)
 	building.ID = id
-
-	//w.Header().Set("Content-Type", "application/json")
+	
 	w.WriteHeader(http.StatusCreated)
 
 	if err := jsonapiRuntime.MarshalPayload(w, building); err != nil {
