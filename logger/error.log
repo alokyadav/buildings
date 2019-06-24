@@ -1,1 +1,2 @@
-2019/06/24 11:55:12 logger.go:26: LogFile : /Users/alokyadav/Desktop/Learning/Assignments/mercari/src/buildings/logger/error.log
+2019/06/24 13:44:08 logger.go:26: LogFile : /Users/alokyadav/Desktop/Learning/Assignments/mercari/src/buildings/logger/error.log
+2019/06/24 13:44:08 building_service.go:94: Error Building with id 1 does not exist

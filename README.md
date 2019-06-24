@@ -6,10 +6,19 @@ Basic CRUD Example using go and jsonapi
 #move to directory
 cd $GOPATH/src/ 
 
+#installation
+go get github.com/onsi/ginkgo
+go get github.com/onsi/gomega
+go get github.com/gorilla/mux 
 #clone the repo
-git clone https://github.com/alokyadav/buildings.git
+git clone https://github.com/alokyadav/buildings.git 
 
-cd ./buildings 
+#or
+
+go get github.com/alokyadav/buildings
+
+
+cd path/to/workspace
 
 #run test
 go test
