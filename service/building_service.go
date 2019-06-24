@@ -5,6 +5,7 @@ import (
 	"github.com/google/jsonapi"
 	"buildings/model"
 	"buildings/storage"
+	"buildings/logger"
 	"github.com/gorilla/mux"
 	"log"
 )
@@ -29,6 +30,7 @@ func (srv *BuildingService) AddBuilding(w http.ResponseWriter, r *http.Request) 
 	building := new(model.Building)
 	w.Header().Set("Content-Type", "application/json")
 	if err := jsonapiRuntime.UnmarshalPayload(r.Body, building); err != nil {
+		logger.Log.Printf("Error %+v", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 
 		return
@@ -42,6 +44,7 @@ func (srv *BuildingService) AddBuilding(w http.ResponseWriter, r *http.Request) 
 	w.WriteHeader(http.StatusCreated)
 
 	if err := jsonapiRuntime.MarshalPayload(w, building); err != nil {
+		logger.Log.Printf("Error %+v", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
@@ -52,7 +55,7 @@ func (srv *BuildingService) GetBuilding(w http.ResponseWriter, r *http.Request) 
 	building,err := srv.buildingStorage.GetOne(params["id"])
 	w.Header().Set("Content-Type", "application/json")
 	if err != nil {
-		log.Printf("err %+v",err)
+		logger.Log.Printf("Error %+v", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -60,7 +63,7 @@ func (srv *BuildingService) GetBuilding(w http.ResponseWriter, r *http.Request) 
 	w.WriteHeader(http.StatusOK)
 
 	if err := jsonapiRuntime.MarshalPayload(w, building); err != nil {
-		log.Printf("hello")
+		logger.Log.Printf("Error %+v", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 
@@ -77,6 +80,7 @@ func (srv *BuildingService) ListBuildings(w http.ResponseWriter, r *http.Request
 	w.WriteHeader(http.StatusOK)
 
 	if err := jsonapiRuntime.MarshalPayload(w, buildings); err != nil {
+		logger.Log.Printf("Error %+v", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
@@ -88,6 +92,7 @@ func (srv *BuildingService) RemoveBuilding(w http.ResponseWriter, r *http.Reques
 	err := srv.buildingStorage.Delete(params["id"])
 
 	if err != nil {
+		logger.Log.Printf("Error %+v", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
