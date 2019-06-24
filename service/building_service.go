@@ -3,9 +3,9 @@ package service
 import (
 	"net/http"
 	"github.com/google/jsonapi"
-	"github.com/alokyadav/buildings/model"
-	"github.com/alokyadav/buildings/storage"
-	"github.com/alokyadav/buildings/logger"
+	model "github.com/alokyadav/buildings/model"
+	storage "github.com/alokyadav/buildings/storage"
+	logger "github.com/alokyadav/buildings/logger"
 	"github.com/gorilla/mux"
 	"log"
 )
